@@ -11,8 +11,9 @@ def index(request):
     template = loader.get_template('usman/index.html')
     return HttpResponse(template.render(context, request))
 
-def temperature(request, zone_name):
-    return HttpResponse('Temperature control page for zone {}'.format(zone_name))
-
-def lighting(request, zone_name):
-    return HttpResponse('Lighting control page for zone {}'.format(zone_name))
+def control(request, zone_name):
+    context = {
+        'zone_selected': Zone.objects.get(zone_name=zone_name),
+    }
+    template = loader.get_template('usman/control.html')
+    return HttpResponse(template.render(context, request))

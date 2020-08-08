@@ -7,7 +7,7 @@
         <h3>First Floor Zones</h3>
         <ul>
         {% for zone in first_floor_zones %}
-            <li><a href="/{{ zone.zone_name }}/">{{ zone.description }}</a></li>
+            <li><a href="/{{ zone.zone_name }}">{{ zone.description }}</a></li>
         {% endfor %}
         </ul>
     {% else %}
@@ -18,7 +18,7 @@
         <h3>Second Floor Zones</h3>
         <ul>
         {% for zone in second_floor_zones %}
-            <li><a href="/{{ zone.zone_name }}/">{{ zone.description }}</a></li>
+            <li><a href="/{{ zone.zone_name }}">{{ zone.description }}</a></li>
         {% endfor %}
         </ul>
     {% else %}
