@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Usman Smart Home</title>
+    </head>
+    <body>
+    {% if first_floor_zones %}
+        <h3>First Floor Zones</h3>
+        <ul>
+        {% for zone in first_floor_zones %}
+            <li><a href="/{{ zone.zone_name }}/">{{ zone.description }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No zones found for first floor in the database!</p>
+    {% endif %}
+
+    {% if second_floor_zones %}
+        <h3>Second Floor Zones</h3>
+        <ul>
+        {% for zone in second_floor_zones %}
+            <li><a href="/{{ zone.zone_name }}/">{{ zone.description }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No zones found for second floor in the database!</p>
+    {% endif %}
+    </body>
+</html>
