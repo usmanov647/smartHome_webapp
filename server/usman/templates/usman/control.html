@@ -4,6 +4,16 @@
     </head>
     <body>
         <h2>FLOOR {{ zone_selected.floor }} - {{ zone_selected.description }} CONTROLS</h2>
-        
+    {% if error_message %}
+        <p><strong>{{ error_message }}</strong></p>
+    {% endif %}
+        <p>Actual temperature: {{ zone_selected.temperature_actual }}</p>
+        <form action="{% url 'usman:control' zone_selected.zone_name %}" method="POST">
+            {% csrf_token %}
+            <label for="temp_set">Set temperature: {{ zone_selected.temperature_set }}</label><br><br>
+            <input type="range" name="temp_set" id="temp_set" min="15" max="30" value="{{ zone_selected.temperature_set }}">
+            <input type="submit" value="Set">
+        </form>
+        <p>Light Color: {{ zone_selected.light_color }}</p>
     </body>
 </html>
