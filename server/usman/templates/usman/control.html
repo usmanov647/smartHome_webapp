@@ -14,6 +14,12 @@
             <input type="range" name="temp_set" id="temp_set" min="15" max="30" value="{{ zone_selected.temperature_set }}">
             <input type="submit" value="Set">
         </form>
-        <p>Light Color: {{ zone_selected.light_color }}</p>
+        <br>
+        <form action="{% url 'usman:control' zone_selected.zone_name %}" method="POST">
+            {% csrf_token %}
+            <label for="color_set">Light Color: {{ zone_selected.light_color }}</label><br>
+            <input type="text" name="color_set" id="color_set" value="{{ zone_selected.color_set }}">
+            <input type="submit" value="Set">
+        </form>
     </body>
 </html>
